@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Socket.IO chat</title>
+    <style>
+        body {
+            margin: 0;
+            padding-bottom: 3rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="form">
+            <form id="form" action="/room">
+                <div class="username">
+                    <input type="text" name="username" id="username" placeholder="Username"/>
+                </div>
+                <div class="room_id">
+                    <input type="text" name="room_id" id="room_id" placeholder="Room ID"/>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Join Chat" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+
+
+    <!--
+    <ul id="messages"></ul>
+    <form id="form" action="">
+        <input type="text" name="nickname" id="nickname" placeholder="anonymous">
+        <input id="input" autocomplete="off" /><button>Send</button>
+    </form>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io();
+
+    var messages = document.getElementById('messages');
+    var form = document.getElementById('form');
+    var input = document.getElementById('input');
+    var nickname = document.getElementById('nickname');
+
+    function addMessage(user, msg) {
+        var item = document.createElement('li');
+        item.innerHTML = '<b>' + user + '</b>: ' + msg;
+        messages.appendChild(item);
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (input.value && nickname.value) {
+            addMessage(nickname.value, input.value);
+            socket.emit('chat message', { nickname: nickname.value, msg: input.value });
+            input.value = '';
+        }
+    });
+
+    input.addEventListener('keyup', function (e) {
+        if (input.value) {
+            socket.emit('typing', nickname.value);
+        }
+    });
+
+    socket.on('connection', () => {
+        var new_user = document.createElement('p');
+        new_user.textContent = 'new user connected';
+        document.body.appendChild(new_user);
+    });
+
+    socket.on('offline', () => {
+        var new_user = document.createElement('p');
+        new_user.textContent = 'user disconnected';
+        document.body.appendChild(new_user);
+    });
+
+    socket.on('typing', (nickname) => {
+        let istyping = document.getElementById('istyping');
+        if (!istyping) {
+            istyping = document.createElement('p');
+            istyping.setAttribute("id", "istyping");
+            istyping.innerHTML = nickname + ' is typing...';
+            document.body.appendChild(istyping);
+            setInterval(() => {
+                istyping.remove();
+            }, 1000);
+        }
+    })
+
+    socket.on('chat message', ({ nickname, msg }) => {
+        addMessage(nickname, msg)
+    });
+</script>
+-->
+
+</body>
+
+
+</html>
